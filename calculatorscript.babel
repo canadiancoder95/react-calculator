@@ -1,0 +1,156 @@
+class Calculator extends React.Component {
+  constructor(props) {
+    super(props)
+  };
+  
+  
+  render() {
+    return (
+      <div id='container'>
+        <b>TI-ReactJS</b>
+        <br />
+        <br />
+        <CalculatorPanel />
+      </div>
+    );
+  };
+}
+
+class CalculatorPanel extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      input: ''
+    };
+    this.processClick = this.processClick.bind(this);
+  }
+
+  processClick(event) {
+    if (event.target.id == 'clearvalues') {
+      this.setState({
+        input: ''
+      });  
+    }
+    if (event.target.id == 'seven') {
+      this.setState({
+        input: this.state.input + '7'
+      }); 
+    }
+    if (event.target.id == 'eight') {
+      this.setState({
+        input: this.state.input + '8'
+      });     
+    }
+    if (event.target.id == 'nine') {
+      this.setState({
+        input: this.state.input + '9'
+      });     
+    }
+    if (event.target.id == 'four') {
+      this.setState({
+        input: this.state.input + '4'
+      });     
+    }
+    if (event.target.id == 'five') {
+      this.setState({
+        input: this.state.input + '5'
+      });     
+    }
+    if (event.target.id == 'six') {
+      this.setState({
+        input: this.state.input + '6'
+      });     
+    }
+    if (event.target.id == 'one') {
+      this.setState({
+        input: this.state.input + '1'
+      });     
+    }
+    if (event.target.id == 'two') {
+      this.setState({
+        input: this.state.input + '2'
+      });     
+    }
+    if (event.target.id == 'three') {
+      this.setState({
+        input: this.state.input + '3'
+      });     
+    }
+    if (event.target.id == 'zero') {
+      this.setState({
+        input: this.state.input + '0'
+      });     
+    }    
+    if (event.target.id == 'equal') {
+      this.setState({
+        input: eval(this.state.input)
+      });     
+    }
+    if (event.target.id == 'division') {
+      this.setState({
+        input: this.state.input + '/'
+      });
+    }
+    if (event.target.id == 'multiply') {
+      this.setState({
+        input: this.state.input + '*'
+      });
+    }
+    if (event.target.id == 'addition') {
+      this.setState({
+        input: this.state.input + '+'
+      });
+    }
+    if (event.target.id == 'subtraction') {
+      this.setState({
+        input: this.state.input + '-'
+      });
+    }
+    if (event.target.id == 'decimal') {
+      this.setState({
+        input: this.state.input + '.'
+      });
+    }    
+}
+  
+  render() {
+    
+    return (
+      
+      <div id='buttoncontainer' className='container-fluid'>
+        <input value={this.state.input} placeholder='0'className='col-md-7' style={{ marginLeft: 10, textAlign: 'right', backgroundColor: 'gold', borderColor: 'gold'}}></input>
+        <br />
+        <br />
+        <div className='row'>
+          <button id='clearvalues' onClick={this.processClick} className='btn btn-lg col-md-6'>A/C</button>
+          <button id='division' onClick={this.processClick} className='btn btn-lg col-md-2'>&#247;</button>
+        </div>
+        <div className='row'>
+          <button id='seven' onClick={this.processClick} className='btn btn-lg col-md-2'>7</button>
+          <button id='eight' onClick={this.processClick} className='btn btn-lg col-md-2'>8</button>
+          <button id='nine' onClick={this.processClick} className='btn btn-lg col-md-2'>9</button>
+          <button id='multiply' onClick={this.processClick} className='btn btn-lg col-md-2'>x</button>
+        </div>
+        <div className='row'>
+          <button id='four' onClick={this.processClick} className='btn btn-lg col-md-2'>4</button>
+          <button id='five' onClick={this.processClick} className='btn btn-lg col-md-2'>5</button>
+          <button id='six' onClick={this.processClick} className='btn btn-lg col-md-2'>6</button>
+          <button id='addition' onClick={this.processClick} className='btn btn-lg col-md-2'>+</button>
+        </div>
+        <div className='row'>
+          <button id='one' onClick={this.processClick} className='btn btn-lg col-md-2'>1</button>
+          <button id='two' onClick={this.processClick} className='btn btn-lg col-md-2'>2</button>
+          <button id='three' onClick={this.processClick} className='btn btn-lg col-md-2'>3</button>
+          <button id='subtraction' onClick={this.processClick} className='btn btn-lg col-md-2'>-</button>
+        </div>
+        <div className='row'>
+          <button id='zero' onClick={this.processClick} className='btn btn-lg col-md-2'>0</button>
+          <button id='decimal' onClick={this.processClick} className='btn btn-lg col-md-2'>.</button>       
+          <button id='equal' onClick={this.processClick} className='btn btn-lg col-md-4'>=</button>
+        </div>
+      </div>
+    );
+  };
+}
+
+ReactDOM.render(<Calculator />, document.getElementById('app'))
